@@ -1,0 +1,21 @@
+{
+    "name": "Python Basics - Calculator",
+    "time_limit_seconds": 2,
+    "test_cases": [
+        {
+            "name": "addition",
+            "input_data": "5\n4\n+\n",
+            "expected_output": "9.0"
+        },
+        {
+            "name": "subtraction",
+            "input_data": "5\n4\n-\n",
+            "expected_output": "1.0"
+        },
+        {
+            "name": "multiplication",
+            "input_data": "5\n4\n*\n",
+            "expected_output": "20.0"
+        }
+    ]
+}
