@@ -40,3 +40,39 @@ def generate_report(execution_results):
         "score": score,
         "results": test_results
     }
+
+
+def generate_assignment_report(question_reports):
+    """Summarize the question reports present for this evaluation run."""
+    questions = []
+    total_tests = 0
+    passed = 0
+    errors = 0
+
+    for report in question_reports:
+        question = {
+            "question_id": report.get("question_id"),
+            "question": report.get("question"),
+            "score": report.get("score", 0.0),
+            "passed": report.get("passed", 0),
+            "total_tests": report.get("total_tests", 0),
+            "status": report.get("status", "evaluated")
+        }
+        questions.append(question)
+        if question["status"] == "error":
+            errors += 1
+        total_tests += question["total_tests"]
+        passed += question["passed"]
+
+    return {
+        "assignment_id": (question_reports[0].get("assignment_id")
+                          if question_reports else None),
+        "questions_submitted": len(questions),
+        "questions_evaluated": len(questions) - errors,
+        "question_errors": errors,
+        "total_tests": total_tests,
+        "passed": passed,
+        "failed": total_tests - passed,
+        "score": round((passed / total_tests) * 100, 2) if total_tests else 0.0,
+        "questions": questions
+    }

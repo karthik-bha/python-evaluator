@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from evaluator.config_loader import load_assignment_config
+from evaluator.config_loader import load_question_config
 from evaluator.evaluator import evaluate_submission
 from evaluator.verdicts import Verdict
 
@@ -9,10 +9,7 @@ BASE_DIR = Path(__file__).resolve().parents[3]
 
 ASSIGNMENTS_DIR = BASE_DIR / "assignments"
 
-config = load_assignment_config(
-    "01-python-basics",
-    ASSIGNMENTS_DIR
-)
+config = load_question_config("01-python-basics", "q1", ASSIGNMENTS_DIR)
 
 STUDENT_FILE = (
     ASSIGNMENTS_DIR
@@ -30,7 +27,4 @@ def test_evaluator():
     )
 
     assert len(output) == 3
-    assert all(
-        result["verdict"] == Verdict.ACCEPTED
-        for result in output
-    )
+    assert all(result["verdict"] == Verdict.ACCEPTED for result in output)

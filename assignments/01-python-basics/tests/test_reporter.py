@@ -1,4 +1,4 @@
-from evaluator.reporter import generate_report
+from evaluator.reporter import generate_assignment_report, generate_report
 from evaluator.verdicts import Verdict
 from evaluator.case import TestCase
 
@@ -54,3 +54,31 @@ def test_report_contains_verdicts():
 
     assert report["results"][0]["verdict"] == "AC"
     assert report["results"][1]["verdict"] == "RE"
+
+
+def test_assignment_report_aggregates_submitted_questions():
+    report = generate_assignment_report([
+        {
+            "assignment_id": "basics",
+            "question_id": "q1",
+            "question": "Calculator",
+            "passed": 2,
+            "total_tests": 2,
+            "score": 100.0
+        },
+        {
+            "assignment_id": "basics",
+            "question_id": "q2",
+            "question": "Strings",
+            "passed": 1,
+            "total_tests": 2,
+            "score": 50.0
+        }
+    ])
+
+    assert report["assignment_id"] == "basics"
+    assert report["questions_submitted"] == 2
+    assert report["questions_evaluated"] == 2
+    assert report["total_tests"] == 4
+    assert report["passed"] == 3
+    assert report["score"] == 75.0
