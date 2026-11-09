@@ -1,0 +1,22 @@
+{
+    "name": "Find the Largest Number",
+    "topics": ["lists", "loops", "conditionals"],
+    "prompt": "Read five integers separated by spaces, store them in a list, and print the largest without using max().",
+    "test_cases": [
+        {
+            "name": "largest in mixed positive values",
+            "input_data": "10 25 4 80 12\n",
+            "expected_output": "80"
+        },
+        {
+            "name": "largest when values are negative",
+            "input_data": "-10 -25 -4 -80 -12\n",
+            "expected_output": "-4"
+        },
+        {
+            "name": "repeated largest value",
+            "input_data": "7 7 2 1 7\n",
+            "expected_output": "7"
+        }
+    ]
+}

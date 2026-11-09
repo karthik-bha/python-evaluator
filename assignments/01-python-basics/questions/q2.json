@@ -1,0 +1,33 @@
+{
+    "name": "Even or Odd",
+    "topics": ["conditionals", "operators"],
+    "prompt": "Read an integer and print whether it is Even or Odd.",
+    "bonus": "Also report whether the number is positive, negative, or zero.",
+    "test_cases": [
+        {
+            "name": "positive odd number",
+            "input_data": "17\n",
+            "expected_output": "Odd"
+        },
+        {
+            "name": "positive even number",
+            "input_data": "24\n",
+            "expected_output": "Even"
+        },
+        {
+            "name": "zero is even",
+            "input_data": "0\n",
+            "expected_output": "Even"
+        },
+        {
+            "name": "negative odd number",
+            "input_data": "-3\n",
+            "expected_output": "Odd"
+        },
+        {
+            "name": "negative even number",
+            "input_data": "-8\n",
+            "expected_output": "Even"
+        }
+    ]
+}

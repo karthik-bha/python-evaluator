@@ -1,0 +1,27 @@
+{
+    "name": "Count Vowels",
+    "topics": ["strings", "loops", "conditionals"],
+    "prompt": "Read a sentence and print the number of vowels (a, e, i, o, u). Count uppercase and lowercase letters equally.",
+    "test_cases": [
+        {
+            "name": "hello world",
+            "input_data": "Hello World\n",
+            "expected_output": "3"
+        },
+        {
+            "name": "uppercase vowels",
+            "input_data": "AEIOU\n",
+            "expected_output": "5"
+        },
+        {
+            "name": "no vowels",
+            "input_data": "rhythm\n",
+            "expected_output": "0"
+        },
+        {
+            "name": "vowels among punctuation and spaces",
+            "input_data": "A! e? I.\n",
+            "expected_output": "3"
+        }
+    ]
+}

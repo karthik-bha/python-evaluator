@@ -1,5 +1,12 @@
 {
     "name": "Calculator",
+    "topics": ["variables", "user input", "type casting", "operators"],
+    "prompt": "Read two numbers and an arithmetic operator (+, -, *, /), then print the result.",
+    "requirements": [
+        "Convert inputs to numeric values.",
+        "Handle division by zero by printing 'Cannot divide by zero'.",
+        "Print 'Invalid operator' for an unsupported operator."
+    ],
     "test_cases": [
         {
             "name": "addition",
@@ -15,6 +22,21 @@
             "name": "multiplication",
             "input_data": "5\n4\n*\n",
             "expected_output": "20.0"
+        },
+        {
+            "name": "division",
+            "input_data": "10\n5\n/\n",
+            "expected_output": "2.0"
+        },
+        {
+            "name": "division by zero",
+            "input_data": "10\n0\n/\n",
+            "expected_output": "Cannot divide by zero"
+        },
+        {
+            "name": "invalid operator",
+            "input_data": "5\n4\n%\n",
+            "expected_output": "Invalid operator"
         }
     ]
 }

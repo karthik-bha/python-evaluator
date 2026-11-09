@@ -71,6 +71,11 @@ student program expects input lines or where expected output needs line breaks.
 Every question currently inherits the assignment's time limit. There is no
 per-question time limit setting yet.
 
+Question files may also include descriptive fields such as `topics`, `prompt`,
+`requirements`, and `bonus`. These keep the question bank together, but the
+current evaluator only reads `name` and `test_cases`; it does not display or
+automatically score those descriptive fields.
+
 ## Student submission names
 
 Students place files in the assignment's `submissions/` directory in the

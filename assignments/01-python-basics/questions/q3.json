@@ -1,0 +1,28 @@
+{
+    "name": "Reverse a String",
+    "topics": ["strings", "loops"],
+    "prompt": "Read a string and print its reverse without using reversed().",
+    "bonus": "Check whether the input is a palindrome.",
+    "test_cases": [
+        {
+            "name": "reverse python",
+            "input_data": "python\n",
+            "expected_output": "nohtyp"
+        },
+        {
+            "name": "single character",
+            "input_data": "x\n",
+            "expected_output": "x"
+        },
+        {
+            "name": "reverse with spaces",
+            "input_data": "hello world\n",
+            "expected_output": "dlrow olleh"
+        },
+        {
+            "name": "empty string",
+            "input_data": "\n",
+            "expected_output": ""
+        }
+    ]
+}

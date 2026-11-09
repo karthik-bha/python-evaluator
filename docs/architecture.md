@@ -47,7 +47,9 @@ output string. The evaluator passes `input_data` to the process through stdin.
 
 The new format places test cases in question files. The older format, where
 test cases live in `assignment.json`, remains usable by invoking the CLI
-without `--question`.
+without `--question`. Question JSON may also contain descriptive metadata such
+as topics, prompt, requirements, or bonus text. The current loader ignores
+those fields; only the name and test cases affect execution.
 
 ## Execution and verdicts
 

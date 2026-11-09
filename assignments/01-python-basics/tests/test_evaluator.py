@@ -26,5 +26,5 @@ def test_evaluator():
         timeout=config.time_limit_seconds
     )
 
-    assert len(output) == 3
+    assert len(output) == 6
     assert all(result["verdict"] == Verdict.ACCEPTED for result in output)
