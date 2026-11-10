@@ -36,7 +36,8 @@ output string. The evaluator passes `input_data` to the process through stdin.
 - `_load_json_object` reads a JSON object and reports missing files or invalid
   top-level JSON types.
 - `_parse_test_cases` validates the required `name`, `input_data`, and
-  `expected_output` string fields and creates `TestCase` instances.
+  `expected_output` string fields, validates an optional non-negative integer
+  `random_seed`, and creates `TestCase` instances.
 - `load_assignment_config` reads `assignments/<id>/assignment.json`. It
   validates the assignment name and positive time limit. `test_cases` is
   optional to support the question-based layout; if present, it must be a
@@ -55,11 +56,14 @@ those fields; only the name and test cases affect execution.
 
 ### `evaluator/runner.py`
 
-`run_program(file_path, input_data, timeout)` invokes the current Python
+`run_program(file_path, input_data, timeout, random_seed)` invokes the current Python
 interpreter (`sys.executable`) with the submission path. `subprocess.run`
 provides stdin and captures stdout/stderr. On timeout, the function returns a
 payload with `timed_out=True`; otherwise it includes the process return code
-and captured streams.
+and captured streams. If `random_seed` is supplied, the runner starts a small
+Python wrapper that seeds the standard `random` module and then runs the
+student's script. This keeps random test cases deterministic without asking
+students to add testing hooks to their code.
 
 The runner does not implement OS-level isolation, memory limits, network
 restrictions, or a full process-tree supervisor. It is not a secure sandbox.

@@ -1,0 +1,19 @@
+{
+    "name": "Number Guessing Game",
+    "topics": ["loops", "conditionals", "random module"],
+    "prompt": "Generate a random integer from 1 through 100. Read guesses until the player guesses correctly, printing 'Too high!' or 'Too low!' after each incorrect guess. Then print 'Correct! You guessed it in N attempts.' Count every guess as an attempt. Do not print input prompts; output only feedback lines.",
+    "test_cases": [
+        {
+            "name": "high then low then correct",
+            "random_seed": 7,
+            "input_data": "50\n30\n42\n",
+            "expected_output": "Too high!\nToo low!\nCorrect! You guessed it in 3 attempts."
+        },
+        {
+            "name": "correct on first guess",
+            "random_seed": 123,
+            "input_data": "7\n",
+            "expected_output": "Correct! You guessed it in 1 attempts."
+        }
+    ]
+}

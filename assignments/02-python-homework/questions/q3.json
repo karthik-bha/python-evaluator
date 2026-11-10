@@ -1,0 +1,46 @@
+{
+    "name": "Student Grade Calculator",
+    "topics": ["lists", "dictionaries", "conditionals"],
+    "prompt": "Read a student's name and five integer marks, one per line. Print the student name, total, average, and grade using the specified thresholds. Assume each mark is from 0 to 100.",
+    "requirements": [
+        "Use grade A for averages from 90 to 100.",
+        "Use grade B for averages from 80 to below 90.",
+        "Use grade C for averages from 70 to below 80.",
+        "Use grade D for averages from 60 to below 70.",
+        "Use grade F for averages below 60.",
+        "Print exactly: Student: <name>, Total: <total>, Average: <average>, Grade: <grade>, each on its own line."
+    ],
+    "bonus": "Store the student's information in a dictionary.",
+    "test_cases": [
+        {
+            "name": "grade A at lower boundary",
+            "input_data": "Asha\n90\n90\n90\n90\n90\n",
+            "expected_output": "Student: Asha\nTotal: 450\nAverage: 90.0\nGrade: A"
+        },
+        {
+            "name": "grade B at lower boundary",
+            "input_data": "Ben\n80\n80\n80\n80\n80\n",
+            "expected_output": "Student: Ben\nTotal: 400\nAverage: 80.0\nGrade: B"
+        },
+        {
+            "name": "grade C at lower boundary",
+            "input_data": "Cleo\n70\n70\n70\n70\n70\n",
+            "expected_output": "Student: Cleo\nTotal: 350\nAverage: 70.0\nGrade: C"
+        },
+        {
+            "name": "grade D at lower boundary",
+            "input_data": "Dev\n60\n60\n60\n60\n60\n",
+            "expected_output": "Student: Dev\nTotal: 300\nAverage: 60.0\nGrade: D"
+        },
+        {
+            "name": "grade F below boundary",
+            "input_data": "Eli\n59\n59\n59\n59\n59\n",
+            "expected_output": "Student: Eli\nTotal: 295\nAverage: 59.0\nGrade: F"
+        },
+        {
+            "name": "fractional average",
+            "input_data": "Fran\n90\n90\n90\n90\n89\n",
+            "expected_output": "Student: Fran\nTotal: 449\nAverage: 89.8\nGrade: B"
+        }
+    ]
+}

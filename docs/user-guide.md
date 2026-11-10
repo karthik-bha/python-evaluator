@@ -76,6 +76,11 @@ Question files may also include descriptive fields such as `topics`, `prompt`,
 current evaluator only reads `name` and `test_cases`; it does not display or
 automatically score those descriptive fields.
 
+A test case may include a non-negative integer `random_seed`. When present,
+the evaluator seeds Python's `random` module before running the student's
+program, making a random exercise repeatable in tests. The student can use
+ordinary `random` module calls; they do not need to read the seed.
+
 ## Student submission names
 
 Students place files in the assignment's `submissions/` directory in the

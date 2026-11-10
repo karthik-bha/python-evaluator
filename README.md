@@ -32,6 +32,10 @@ Each question has an independent config at
 }
 ```
 
+An optional non-negative integer `random_seed` on a test case runs that
+submission with Python's random module seeded before the student's script
+starts. Use it for repeatable tests of randomized exercises.
+
 Question IDs are the config filename without `.json`. Student submission
 filenames use that ID, optionally followed by an underscore and description:
 `q1.py` and `q1_calculator.py` both map to question `q1`.

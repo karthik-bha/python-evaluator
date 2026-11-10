@@ -1,0 +1,22 @@
+{
+    "name": "Multiplication Table",
+    "topics": ["loops", "user input"],
+    "prompt": "Read an integer and print its multiplication table from 1 through 10. Each line must use the format 'n x i = product'.",
+    "test_cases": [
+        {
+            "name": "table for five",
+            "input_data": "5\n",
+            "expected_output": "5 x 1 = 5\n5 x 2 = 10\n5 x 3 = 15\n5 x 4 = 20\n5 x 5 = 25\n5 x 6 = 30\n5 x 7 = 35\n5 x 8 = 40\n5 x 9 = 45\n5 x 10 = 50"
+        },
+        {
+            "name": "table for zero",
+            "input_data": "0\n",
+            "expected_output": "0 x 1 = 0\n0 x 2 = 0\n0 x 3 = 0\n0 x 4 = 0\n0 x 5 = 0\n0 x 6 = 0\n0 x 7 = 0\n0 x 8 = 0\n0 x 9 = 0\n0 x 10 = 0"
+        },
+        {
+            "name": "table for negative integer",
+            "input_data": "-2\n",
+            "expected_output": "-2 x 1 = -2\n-2 x 2 = -4\n-2 x 3 = -6\n-2 x 4 = -8\n-2 x 5 = -10\n-2 x 6 = -12\n-2 x 7 = -14\n-2 x 8 = -16\n-2 x 9 = -18\n-2 x 10 = -20"
+        }
+    ]
+}

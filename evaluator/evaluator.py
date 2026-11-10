@@ -10,7 +10,8 @@ def evaluate_submission(file_path, test_cases,  timeout: float = 2.0):
         output = run_program(
             file_path,
             test_case.input_data,
-            timeout=timeout
+            timeout=timeout,
+            random_seed=test_case.random_seed
         )
 
         is_correct = (

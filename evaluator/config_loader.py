@@ -35,10 +35,21 @@ def _parse_test_cases(raw_test_cases, label):
                     f"Test case {index} in {label}: '{field}' must be a string"
                 )
 
+        random_seed = case.get("random_seed")
+        if random_seed is not None and (
+            isinstance(random_seed, bool)
+            or not isinstance(random_seed, int)
+            or random_seed < 0
+        ):
+            raise ValueError(
+                f"Test case {index} in {label}: 'random_seed' must be a non-negative integer"
+            )
+
         test_cases.append(TestCase(
             name=case["name"],
             input_data=case["input_data"],
-            expected_output=case["expected_output"]
+            expected_output=case["expected_output"],
+            random_seed=random_seed
         ))
     return test_cases
 

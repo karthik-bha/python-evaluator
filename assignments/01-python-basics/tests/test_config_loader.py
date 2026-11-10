@@ -88,3 +88,46 @@ def test_missing_question_config(tmp_path):
 def test_invalid_question_id(tmp_path):
     with pytest.raises(ValueError, match="question ID"):
         load_question_config("basics", "../outside", tmp_path)
+
+
+def test_question_config_loads_optional_random_seed(tmp_path):
+    assignment_dir = tmp_path / "basics"
+    questions_dir = assignment_dir / "questions"
+    questions_dir.mkdir(parents=True)
+    (assignment_dir / "assignment.json").write_text(
+        json.dumps({"name": "Basics"}), encoding="utf-8"
+    )
+    (questions_dir / "q1.json").write_text(json.dumps({
+        "name": "Guessing game",
+        "test_cases": [{
+            "name": "seeded test",
+            "input_data": "42\n",
+            "expected_output": "42",
+            "random_seed": 7
+        }]
+    }), encoding="utf-8")
+
+    config = load_question_config("basics", "q1", tmp_path)
+
+    assert config.test_cases[0].random_seed == 7
+
+
+def test_question_config_rejects_invalid_random_seed(tmp_path):
+    assignment_dir = tmp_path / "basics"
+    questions_dir = assignment_dir / "questions"
+    questions_dir.mkdir(parents=True)
+    (assignment_dir / "assignment.json").write_text(
+        json.dumps({"name": "Basics"}), encoding="utf-8"
+    )
+    (questions_dir / "q1.json").write_text(json.dumps({
+        "name": "Guessing game",
+        "test_cases": [{
+            "name": "invalid seed",
+            "input_data": "",
+            "expected_output": "",
+            "random_seed": True
+        }]
+    }), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="random_seed"):
+        load_question_config("basics", "q1", tmp_path)

@@ -1,0 +1,27 @@
+{
+    "name": "Word Frequency Counter",
+    "topics": ["strings", "dictionaries", "loops"],
+    "prompt": "Read a sentence, count each whitespace-separated word without regard to capitalization, and print each lowercase word and its count on a line. Print words in order of first appearance. Punctuation is treated as part of a word.",
+    "test_cases": [
+        {
+            "name": "sample sentence with repeated words",
+            "input_data": "Python is easy and Python is powerful\n",
+            "expected_output": "python: 2\nis: 2\neasy: 1\nand: 1\npowerful: 1"
+        },
+        {
+            "name": "case-insensitive counting",
+            "input_data": "Go go GO stop Go\n",
+            "expected_output": "go: 4\nstop: 1"
+        },
+        {
+            "name": "punctuation remains part of token",
+            "input_data": "Hello, hello! hello,\n",
+            "expected_output": "hello,: 2\nhello!: 1"
+        },
+        {
+            "name": "empty sentence",
+            "input_data": "\n",
+            "expected_output": ""
+        }
+    ]
+}

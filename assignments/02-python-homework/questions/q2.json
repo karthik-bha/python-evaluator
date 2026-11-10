@@ -1,0 +1,27 @@
+{
+    "name": "Remove Duplicates from a List",
+    "topics": ["lists", "loops"],
+    "prompt": "Read a Python-style list of integers. Print a new list containing each value once, in its original order. Do not use set().",
+    "test_cases": [
+        {
+            "name": "preserve first appearance order",
+            "input_data": "[1, 2, 2, 3, 4, 3, 5]\n",
+            "expected_output": "[1, 2, 3, 4, 5]"
+        },
+        {
+            "name": "negative and repeated values",
+            "input_data": "[-1, -1, 0, 2, 0, -1]\n",
+            "expected_output": "[-1, 0, 2]"
+        },
+        {
+            "name": "all values unique",
+            "input_data": "[3, 1, 2]\n",
+            "expected_output": "[3, 1, 2]"
+        },
+        {
+            "name": "empty list",
+            "input_data": "[]\n",
+            "expected_output": "[]"
+        }
+    ]
+}

@@ -8,7 +8,7 @@ import sys
 # input_data="4\n5\n+\n"
 
 
-def run_program(file_path, input_data, timeout: float = 2.0):
+def run_program(file_path, input_data, timeout: float = 2.0, random_seed=None):
     """
     Execute a Python file with the provided input.
 
@@ -24,8 +24,26 @@ def run_program(file_path, input_data, timeout: float = 2.0):
         "timed_out": True
     }
     try:
+        command = [sys.executable, str(file_path)]
+        if random_seed is not None:
+            seeded_runner = (
+                "import os, random, runpy, sys; "
+                "random.seed(int(sys.argv[1])); "
+                "script_path = sys.argv[2]; "
+                "sys.path.insert(0, os.path.dirname(os.path.abspath(script_path))); "
+                "sys.argv = [script_path]; "
+                "runpy.run_path(script_path, run_name='__main__')"
+            )
+            command = [
+                sys.executable,
+                "-c",
+                seeded_runner,
+                str(random_seed),
+                str(file_path)
+            ]
+
         result= subprocess.run(
-            [sys.executable, str(file_path)], #sys.executable instead of explicit python3.x so that it uses the interpreter's version
+            command, #sys.executable uses the active evaluator interpreter
             input=input_data,
             text=True,
             capture_output=True,

@@ -8,3 +8,4 @@ class TestCase:
     name: str
     input_data: str
     expected_output: str
+    random_seed: int | None = None
